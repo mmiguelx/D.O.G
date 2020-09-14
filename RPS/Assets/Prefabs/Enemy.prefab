@@ -46,6 +46,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -95,6 +97,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Enemy
   unitLevel: 1
+  lastBehaviourA: 0
+  lastBehaviourD: 0
+  unitBehaviourA: 00000000010000000000000002000000
+  unitBehaviourD: 000000000100000002000000
   damage: 3
   maxHP: 20
   currentHP: 20

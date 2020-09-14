@@ -70,9 +70,8 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack(int action)
     {
-        //---
         //comprobar quien gana y ejecutar acción ofensiva según ganar empatar o perder
-        int enemyAction = Random.Range(0, 3); //acción enemiga random simple
+        int enemyAction = enemyUnit.getActionD(); //acción enemiga simple
 
         int resolve = actionResolver(action, enemyAction);
         bool isDead = enemyUnit.TakeDamage(resolve * playerUnit.damage);
@@ -90,7 +89,6 @@ public class BattleSystem : MonoBehaviour
             //StartCoroutine(EnemyTurn());
             EnemyTurn();
         }
-        //---
         yield return new WaitForSeconds(2f);
 
         // comprobar si el enemigo esta muerto y cambiar estado según lo que ha pasado
@@ -98,9 +96,8 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyAttack(int action)
     {
-        //---
         //comprobar quien gana y ejecutar acción defensiva según ganar empatar o perder
-        int enemyAction = Random.Range(0, 3); //acción enemiga random simple
+        int enemyAction = enemyUnit.getActionA(); //acción enemiga simple
 
         int resolve = actionResolver(action, enemyAction);
         if (resolve != 1)
@@ -122,7 +119,6 @@ public class BattleSystem : MonoBehaviour
             //StartCoroutine(PlayerTurn());
             PlayerTurn();
         }
-        //---
         yield return new WaitForSeconds(2f);
 
         // comprobar si has muerto y cambiar estado según lo que ha pasado
