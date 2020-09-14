@@ -86,6 +86,7 @@ public class BattleSystem : MonoBehaviour
         else
         {
             state = BattleState.ENEMYTURN;
+            //cambiar moneda
             //StartCoroutine(EnemyTurn());
             EnemyTurn();
         }
@@ -93,18 +94,6 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         // comprobar si el enemigo esta muerto y cambiar estado según lo que ha pasado
-    }
-
-    void EndBattle()
-    {
-        if (state == BattleState.WON)
-        {
-            Debug.Log("Has ganado");
-        }
-        else if (state == BattleState.LOST)
-        {
-            Debug.Log("Has perdido");
-        }
     }
 
     IEnumerator EnemyAttack(int action)
@@ -129,6 +118,7 @@ public class BattleSystem : MonoBehaviour
         else
         {
             state = BattleState.PLAYERTURN;
+            //cambiar moneda
             //StartCoroutine(PlayerTurn());
             PlayerTurn();
         }
@@ -138,6 +128,17 @@ public class BattleSystem : MonoBehaviour
         // comprobar si has muerto y cambiar estado según lo que ha pasado
     }
 
+    void EndBattle()
+    {
+        if (state == BattleState.WON)
+        {
+            Debug.Log("Has ganado");
+        }
+        else if (state == BattleState.LOST)
+        {
+            Debug.Log("Has perdido");
+        }
+    }
     void PlayerTurn()
     {
         Debug.Log("Player turn");
