@@ -8,6 +8,7 @@ public class BattleSystem : MonoBehaviour
 {
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
+    public Enemy enemy;
 
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
@@ -20,6 +21,8 @@ public class BattleSystem : MonoBehaviour
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
     public ScreenHUD screenHUD;
+
+    private bool onAction = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +39,7 @@ public class BattleSystem : MonoBehaviour
 
         GameObject enemyGo = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGo.GetComponent<Unit>();
+        enemyUnit.initEUnit(enemy);
 
         screenHUD.writeLog("Starting...");
 
@@ -81,15 +85,16 @@ public class BattleSystem : MonoBehaviour
             if (action == 2)
                 screenHUD.writeLog("El enemigo ha sacado tijera\n");
         }
+        CombatHistory.instance.Add(action);
     }
 
     IEnumerator PlayerAttack(int action)
     {
         //comprobar quien gana y ejecutar acción ofensiva según ganar empatar o perder
-        int enemyAction = enemyUnit.getActionD(); //acción enemiga simple
-
         CombatLog(action, true);
         yield return new WaitForSeconds(1f);
+
+        int enemyAction = enemyUnit.getActionD(); //acción enemiga simple
         CombatLog(enemyAction, false);
         yield return new WaitForSeconds(1f);
 
@@ -115,10 +120,10 @@ public class BattleSystem : MonoBehaviour
     IEnumerator EnemyAttack(int action)
     {
         //comprobar quien gana y ejecutar acción defensiva según ganar empatar o perder
-        int enemyAction = enemyUnit.getActionA(); //acción enemiga simple
 
         CombatLog(action, true);
         yield return new WaitForSeconds(1f);
+        int enemyAction = enemyUnit.getActionA(); //acción enemiga simple
         CombatLog(enemyAction, false);
         yield return new WaitForSeconds(1f);
 
@@ -155,19 +160,26 @@ public class BattleSystem : MonoBehaviour
         {
             screenHUD.writeLog("Has perdido");
         }
+        CombatHistory.instance.Clear();
     }
     void PlayerTurn()
     {
         screenHUD.writeLog("Player turn\n");
+        onAction = false;
     }
 
     void EnemyTurn()
     {
         screenHUD.writeLog("Enemy turn\n");
+        onAction = false;
     }
 
     public void OnActionButton(int action)
     {
+        if (onAction)
+            return;
+        else
+            onAction = true;
         if (state == BattleState.PLAYERTURN)
             StartCoroutine(PlayerAttack(action));
         else if (state == BattleState.ENEMYTURN)
