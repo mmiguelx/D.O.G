@@ -17,10 +17,15 @@ public class BattleSystem : MonoBehaviour
 
     public BattleState state;
 
+    public BattleHUD playerHUD;
+    public BattleHUD enemyHUD;
+    public ScreenHUD screenHUD;
+
     // Start is called before the first frame update
     void Start()
     {
         state = BattleState.START;
+        screenHUD.eraseLog();
         StartCoroutine(SetupBattle());
     }
 
@@ -32,10 +37,14 @@ public class BattleSystem : MonoBehaviour
         GameObject enemyGo = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGo.GetComponent<Unit>();
 
-        //meter HUD
-        Debug.Log("starting...");
+        screenHUD.writeLog("Starting...");
+
+        playerHUD.SetHUD(playerUnit);
+        enemyHUD.SetHUD(enemyUnit);
 
         yield return new WaitForSeconds(2f);
+
+        screenHUD.eraseLog();
 
         state = BattleState.PLAYERTURN;
         PlayerTurn();
@@ -43,22 +52,6 @@ public class BattleSystem : MonoBehaviour
 
     public int actionResolver(int action, int enemyAction)
     {
-        //INFO------
-        if (action == 0)
-            Debug.Log("Has sacado piedra");
-        if (action == 1)
-            Debug.Log("Has sacado papel");
-        if (action == 2)
-            Debug.Log("Has sacado tijera");
-
-        if (enemyAction == 0)
-            Debug.Log("El enemigo ha sacado piedra");
-        if (enemyAction == 1)
-            Debug.Log("El enemigo ha sacado papel");
-        if (enemyAction == 2)
-            Debug.Log("El enemigo ha sacado tijera");
-        //--------
-
         //devolvera 0 si el jugador falla, 1 si empata y 2 si acierta
         if (enemyAction == action)
             return 1;
@@ -68,15 +61,42 @@ public class BattleSystem : MonoBehaviour
             return 0;
     }
 
+    void CombatLog(int action, bool type)
+    {
+        if (type)
+        {
+            if (action == 0)
+                screenHUD.writeLog("Has sacado piedra\n");
+            if (action == 1)
+                screenHUD.writeLog("Has sacado papel\n");
+            if (action == 2)
+                screenHUD.writeLog("Has sacado tijera\n");
+        }
+        else
+        {
+            if (action == 0)
+                screenHUD.writeLog("El enemigo ha sacado piedra\n");
+            if (action == 1)
+                screenHUD.writeLog("El enemigo ha sacado papel\n");
+            if (action == 2)
+                screenHUD.writeLog("El enemigo ha sacado tijera\n");
+        }
+    }
+
     IEnumerator PlayerAttack(int action)
     {
         //comprobar quien gana y ejecutar acción ofensiva según ganar empatar o perder
         int enemyAction = enemyUnit.getActionD(); //acción enemiga simple
 
+        CombatLog(action, true);
+        yield return new WaitForSeconds(1f);
+        CombatLog(enemyAction, false);
+        yield return new WaitForSeconds(1f);
+
         int resolve = actionResolver(action, enemyAction);
         bool isDead = enemyUnit.TakeDamage(resolve * playerUnit.damage);
-        Debug.Log("Se han hecho " + resolve * playerUnit.damage + " puntos de daño");
-        //actualizar HUD
+        screenHUD.writeLog("Se han hecho " + resolve * playerUnit.damage + " puntos de daño\n");
+        enemyHUD.SetHP(enemyUnit.currentHP);
         if (isDead)
         {
             state = BattleState.WON;
@@ -84,14 +104,12 @@ public class BattleSystem : MonoBehaviour
         }
         else
         {
+            yield return new WaitForSeconds(2.5f);
+            screenHUD.eraseLog();
             state = BattleState.ENEMYTURN;
-            //cambiar moneda
-            //StartCoroutine(EnemyTurn());
             EnemyTurn();
+            screenHUD.changeState();
         }
-        yield return new WaitForSeconds(2f);
-
-        // comprobar si el enemigo esta muerto y cambiar estado según lo que ha pasado
     }
 
     IEnumerator EnemyAttack(int action)
@@ -99,14 +117,19 @@ public class BattleSystem : MonoBehaviour
         //comprobar quien gana y ejecutar acción defensiva según ganar empatar o perder
         int enemyAction = enemyUnit.getActionA(); //acción enemiga simple
 
+        CombatLog(action, true);
+        yield return new WaitForSeconds(1f);
+        CombatLog(enemyAction, false);
+        yield return new WaitForSeconds(1f);
+
         int resolve = actionResolver(action, enemyAction);
         if (resolve != 1)
             resolve += 2;
         if (resolve > 2)
             resolve = 0;
         bool isDead = playerUnit.TakeDamage(resolve * enemyUnit.damage);
-        Debug.Log("Se han recibido " + resolve * enemyUnit.damage + " puntos de daño");
-        //actualizar HUD
+        screenHUD.writeLog("Se han recibido " + resolve * enemyUnit.damage + " puntos de daño\n");
+        playerHUD.SetHP(playerUnit.currentHP);
         if (isDead)
         {
             state = BattleState.LOST;
@@ -114,50 +137,40 @@ public class BattleSystem : MonoBehaviour
         }
         else
         {
+            yield return new WaitForSeconds(2.5f);
+            screenHUD.eraseLog();
             state = BattleState.PLAYERTURN;
-            //cambiar moneda
-            //StartCoroutine(PlayerTurn());
             PlayerTurn();
+            screenHUD.changeState();
         }
-        yield return new WaitForSeconds(2f);
-
-        // comprobar si has muerto y cambiar estado según lo que ha pasado
     }
 
     void EndBattle()
     {
         if (state == BattleState.WON)
         {
-            Debug.Log("Has ganado");
+            screenHUD.writeLog("Has ganado");
         }
         else if (state == BattleState.LOST)
         {
-            Debug.Log("Has perdido");
+            screenHUD.writeLog("Has perdido");
         }
     }
     void PlayerTurn()
     {
-        Debug.Log("Player turn");
-        //actualizar HUD para enseñar que hay que elegir una acción de ataque
-
+        screenHUD.writeLog("Player turn\n");
     }
 
     void EnemyTurn()
     {
-        Debug.Log("Enemy turn");
-        //actualizar HUD para enseñar que hay que elegir una acción de defensa
-
+        screenHUD.writeLog("Enemy turn\n");
     }
 
     public void OnActionButton(int action)
     {
         if (state == BattleState.PLAYERTURN)
-        {
             StartCoroutine(PlayerAttack(action));
-        }
         else if (state == BattleState.ENEMYTURN)
-        {
             StartCoroutine(EnemyAttack(action));
-        }
     }
 }
