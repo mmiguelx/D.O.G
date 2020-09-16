@@ -97,10 +97,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Enemy
   unitLevel: 1
-  lastBehaviourA: 0
-  lastBehaviourD: 0
-  unitBehaviourA: 00000000010000000000000002000000
-  unitBehaviourD: 000000000100000002000000
+  behaviourA: 4
+  behaviourD: 3
+  unitBehaviourA: 
+  unitBehaviourD: 01000000
   damage: 3
   maxHP: 20
   currentHP: 20

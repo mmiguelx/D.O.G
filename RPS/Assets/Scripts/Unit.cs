@@ -17,8 +17,9 @@ public class Unit : MonoBehaviour
     public int maxHP;
     public int currentHP;
 
-    public void initEUnit(Enemy enemy)
+    public void initEUnit()
     {
+        Enemy enemy = BattleInfoBridge.instance.GetEnemy();
         this.unitName = enemy.name;
         this.unitLevel = enemy.level;
         this.damage = enemy.damage;
@@ -49,7 +50,7 @@ public class Unit : MonoBehaviour
             return false;
     }
 
-    //behaviour 1 = primer int del array es el contador y el resto es el patrón fijo que loopea
+    //behaviour 1 = primer int del array es el contador y el resto es el patrón fijo que loopea. Lo normal es que el primer valor sea 1
     //behaviour 2 = 3 ints que representan la probabilidad de cada uno
     //behaviour 3 = toma la última acción generada segun el valor proporcionado en la primera posicion del array
     //      1 = toma la acción actual del jugador
@@ -93,6 +94,8 @@ public class Unit : MonoBehaviour
         {
             action = Random.Range(0, 3);
         }
+        if (action == 3)
+            action = 2;
         return action;
     }
 
@@ -131,6 +134,8 @@ public class Unit : MonoBehaviour
         {
             action = Random.Range(0, 3);
         }
+        if (action == 3)
+            action = 2;
         return action;
     }
 }

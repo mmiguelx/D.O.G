@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dfb8a94ea36f1042a76b0a6d9a5771a, type: 3}
+  m_Name: Kobold
+  m_EditorClassIdentifier: 
+  name: Kobold
+  level: 3
+  damage: 4
+  hp: 20
+  icon: {fileID: 0}
+  ABehaviourType: 2
+  DBehaviourType: 2
+  ABehaviour: 140000003c00000014000000
+  DBehaviour: 14000000140000003c000000

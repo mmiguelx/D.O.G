@@ -7,17 +7,17 @@ using UnityEngine.UI;
 public class SetVol : MonoBehaviour
 {
     public AudioMixer mixer;
-    static float value;
+    static float value = 1;
     static bool firstRun = true;
 
     void Start()
     {
         var slider = GetComponent<Slider>();
-        if (value != 1 && firstRun == false)
+        if (firstRun == false)
         {
             slider.value = value;
         }
-        else if (firstRun == true)
+        else
         {
             slider.value = 1;
             firstRun = false;

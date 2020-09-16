@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 
@@ -35,11 +36,12 @@ public class BattleSystem : MonoBehaviour
     IEnumerator SetupBattle()
     {
         GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
-        playerUnit = playerGO.GetComponent<Unit>();
+        //playerUnit = playerGO.GetComponent<Unit>();
+        playerUnit = BattleInfoBridge.instance.GetPlayer();
 
         GameObject enemyGo = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGo.GetComponent<Unit>();
-        enemyUnit.initEUnit(enemy);
+        enemyUnit.initEUnit();
 
         screenHUD.writeLog("Starting...");
 
@@ -79,11 +81,11 @@ public class BattleSystem : MonoBehaviour
         else
         {
             if (action == 0)
-                screenHUD.writeLog("El enemigo ha sacado piedra\n");
+                screenHUD.writeLog(enemyUnit.unitName + " ha sacado piedra\n");
             if (action == 1)
-                screenHUD.writeLog("El enemigo ha sacado papel\n");
+                screenHUD.writeLog(enemyUnit.unitName + " ha sacado papel\n");
             if (action == 2)
-                screenHUD.writeLog("El enemigo ha sacado tijera\n");
+                screenHUD.writeLog(enemyUnit.unitName + " ha sacado tijera\n");
         }
         CombatHistory.instance.Add(action);
     }
@@ -105,7 +107,8 @@ public class BattleSystem : MonoBehaviour
         if (isDead)
         {
             state = BattleState.WON;
-            EndBattle();
+            BattleInfoBridge.instance.SetPlayer(playerUnit);
+            StartCoroutine(EndBattle());
         }
         else
         {
@@ -134,11 +137,16 @@ public class BattleSystem : MonoBehaviour
             resolve = 0;
         bool isDead = playerUnit.TakeDamage(resolve * enemyUnit.damage);
         screenHUD.writeLog("Se han recibido " + resolve * enemyUnit.damage + " puntos de daño\n");
+        if (enemyUnit.unitName == "Boss" && resolve == 2) //cosas de boss implementadas de forma chorra
+        {
+            enemyUnit.damage++;
+            screenHUD.writeLog("La fuerza del boss ha aumentado!");
+        }
         playerHUD.SetHP(playerUnit.currentHP);
         if (isDead)
         {
             state = BattleState.LOST;
-            EndBattle();
+            StartCoroutine(EndBattle());
         }
         else
         {
@@ -150,7 +158,7 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    void EndBattle()
+    IEnumerator EndBattle()
     {
         if (state == BattleState.WON)
         {
@@ -160,7 +168,11 @@ public class BattleSystem : MonoBehaviour
         {
             screenHUD.writeLog("Has perdido");
         }
+        yield return new WaitForSeconds(2f);
         CombatHistory.instance.Clear();
+        SceneManager.LoadScene("Map", LoadSceneMode.Single);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Map"));
+        SceneManager.UnloadSceneAsync("MyCombat");
     }
     void PlayerTurn()
     {

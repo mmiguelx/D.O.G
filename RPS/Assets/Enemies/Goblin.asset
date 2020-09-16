@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Goblin
   m_EditorClassIdentifier: 
   name: Goblin
-  level: 1
+  level: 2
   damage: 4
-  hp: 10
+  hp: 16
   icon: {fileID: 0}
   ABehaviourType: 1
   DBehaviourType: 1
-  ABehaviour: 03000000020000000100000000000000
-  DBehaviour: 03000000000000000100000002000000
+  ABehaviour: 000000000100000002000000
+  DBehaviour: 020000000100000000000000
