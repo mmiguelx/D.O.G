@@ -18,9 +18,10 @@ public class BattleInfoBridge : MonoBehaviour
         instance = this;
         player = playerGO.GetComponent<Unit>();
 
-        player.maxHP = 50;
+        player.maxHP = 30;
         player.currentHP = player.maxHP;
         player.unitLevel = 1;
+        player.damage = 2;
     }
 
     #endregion

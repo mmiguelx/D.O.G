@@ -15,7 +15,7 @@ public class BattleLoader : MonoBehaviour
         if (access[battleId] == 1)
         {
             BattleInfoBridge.instance.SetEnemy(eventEnemy);
-            if (battleId != access.Length)
+            if (battleId != access.Length - 1)
                 access[battleId + 1] = 1;
             access[battleId] = 0;
             fadeExit(scene);

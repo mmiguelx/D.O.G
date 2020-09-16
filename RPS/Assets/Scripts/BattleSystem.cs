@@ -46,7 +46,10 @@ public class BattleSystem : MonoBehaviour
         enemyUnit.initEUnit();
 
         screenHUD.writeLog("Starting...");
+        if (enemyUnit.unitName == "Boss")
+        {
 
+        }
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
 
@@ -74,20 +77,20 @@ public class BattleSystem : MonoBehaviour
         if (type)
         {
             if (action == 0)
-                screenHUD.writeLog("Has sacado piedra\n");
+                screenHUD.writeLog("You choose rock\n");
             if (action == 1)
-                screenHUD.writeLog("Has sacado papel\n");
+                screenHUD.writeLog("You choose paper\n");
             if (action == 2)
-                screenHUD.writeLog("Has sacado tijera\n");
+                screenHUD.writeLog("You choose scissors\n");
         }
         else
         {
             if (action == 0)
-                screenHUD.writeLog(enemyUnit.unitName + " ha sacado piedra\n");
+                screenHUD.writeLog(enemyUnit.unitName + " choose rock\n");
             if (action == 1)
-                screenHUD.writeLog(enemyUnit.unitName + " ha sacado papel\n");
+                screenHUD.writeLog(enemyUnit.unitName + " choose paper\n");
             if (action == 2)
-                screenHUD.writeLog(enemyUnit.unitName + " ha sacado tijera\n");
+                screenHUD.writeLog(enemyUnit.unitName + " choose scissors\n");
         }
         CombatHistory.instance.Add(action);
     }
@@ -104,7 +107,7 @@ public class BattleSystem : MonoBehaviour
 
         int resolve = actionResolver(action, enemyAction);
         bool isDead = enemyUnit.TakeDamage(resolve * playerUnit.damage);
-        screenHUD.writeLog("Se han hecho " + resolve * playerUnit.damage + " puntos de daño\n");
+        screenHUD.writeLog("You did " + resolve * playerUnit.damage + " points of damage\n");
         enemyHUD.SetHP(enemyUnit.currentHP);
         if (isDead)
         {
@@ -160,25 +163,38 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-   IEnumerator EndBattle()
+    IEnumerator EndBattle()
     {
         if (state == BattleState.WON)
         {
-            screenHUD.writeLog("Has ganado");
+            screenHUD.writeLog("You win\n");
+            yield return new WaitForSeconds(1f);
+            screenHUD.writeLog("You leveled up!\n");
+            playerUnit.unitLevel++;
+            if (playerUnit.unitLevel % 2 == 0)
+            {
+                screenHUD.writeLog("You gain 1 more damage\n");
+                playerUnit.damage++;
+            }
+            else
+            {
+                screenHUD.writeLog("You gain 5 more health\n");
+                playerUnit.maxHP += 5;
+                playerUnit.currentHP += 5;
+            }
             yield return new WaitForSeconds(2f);
-            animator.fadeExit(1);
+            animator.fadeExit(2);
             //SceneManager.LoadScene(1);
         }
         else if (state == BattleState.LOST)
         {
-            screenHUD.writeLog("Has perdido");
+            screenHUD.writeLog("You lose");
             yield return new WaitForSeconds(2f);
-            animator.fadeExit(0);
+            animator.fadeExit(1);
             //SceneManager.LoadScene(0);
         }
         CombatHistory.instance.Clear();
     }
-
     void PlayerTurn()
     {
         screenHUD.writeLog("Player turn\n");
