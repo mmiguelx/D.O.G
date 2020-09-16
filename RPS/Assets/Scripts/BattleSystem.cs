@@ -25,6 +25,8 @@ public class BattleSystem : MonoBehaviour
 
     private bool onAction = false;
 
+    public BattleLoader animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -163,16 +165,17 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.WON)
         {
             screenHUD.writeLog("Has ganado");
+            yield return new WaitForSeconds(2f);
+            animator.fadeExit();
+            //SceneManager.LoadScene(1);
         }
         else if (state == BattleState.LOST)
         {
             screenHUD.writeLog("Has perdido");
+            yield return new WaitForSeconds(2f);
+            //SceneManager.LoadScene(0);
         }
-        yield return new WaitForSeconds(2f);
         CombatHistory.instance.Clear();
-        SceneManager.LoadScene("Map", LoadSceneMode.Single);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Map"));
-        SceneManager.UnloadSceneAsync("MyCombat");
     }
     void PlayerTurn()
     {

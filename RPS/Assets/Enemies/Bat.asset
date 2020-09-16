@@ -19,5 +19,5 @@ MonoBehaviour:
   icon: {fileID: 0}
   ABehaviourType: 1
   DBehaviourType: 0
-  ABehaviour: 02000000
+  ABehaviour: 0100000002000000
   DBehaviour: 

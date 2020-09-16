@@ -65,7 +65,7 @@ public class Unit : MonoBehaviour
 
         if (behaviourA == 1)
         {
-            action = unitBehaviourA[0];
+            action = unitBehaviourA[unitBehaviourA[0]];
             unitBehaviourA[0]++;
             if (unitBehaviourA[0] == unitBehaviourA.Length)
                 unitBehaviourA[0] = 1;
@@ -105,7 +105,7 @@ public class Unit : MonoBehaviour
 
         if (behaviourD == 1)
         {
-            action = unitBehaviourD[0];
+            action = unitBehaviourD[unitBehaviourD[0]];
             unitBehaviourD[0]++;
             if (unitBehaviourD[0] == unitBehaviourD.Length)
                 unitBehaviourD[0] = 1;
