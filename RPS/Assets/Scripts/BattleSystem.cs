@@ -160,23 +160,25 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    IEnumerator EndBattle()
+   IEnumerator EndBattle()
     {
         if (state == BattleState.WON)
         {
             screenHUD.writeLog("Has ganado");
             yield return new WaitForSeconds(2f);
-            animator.fadeExit();
+            animator.fadeExit(1);
             //SceneManager.LoadScene(1);
         }
         else if (state == BattleState.LOST)
         {
             screenHUD.writeLog("Has perdido");
             yield return new WaitForSeconds(2f);
+            animator.fadeExit(0);
             //SceneManager.LoadScene(0);
         }
         CombatHistory.instance.Clear();
     }
+
     void PlayerTurn()
     {
         screenHUD.writeLog("Player turn\n");

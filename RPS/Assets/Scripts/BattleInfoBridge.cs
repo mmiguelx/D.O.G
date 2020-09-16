@@ -7,23 +7,25 @@ public class BattleInfoBridge : MonoBehaviour
     #region Singleton
 
     public static BattleInfoBridge instance;
+    public GameObject playerGO;
+    public Unit player;
 
     void Awake()
     {
-        //DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this);
         if (instance != null)
-        {
-            Debug.LogWarning("More than one instance of BattleInfoBridge found!");
             return;
-        }
         instance = this;
+        player = playerGO.GetComponent<Unit>();
+
+        player.maxHP = 50;
+        player.currentHP = player.maxHP;
+        player.unitLevel = 1;
     }
 
     #endregion
 
     public Enemy enemy;
-    public GameObject playerGO;
-    public Unit player;
 
     public Enemy GetEnemy()
     {
@@ -37,10 +39,6 @@ public class BattleInfoBridge : MonoBehaviour
 
     public Unit GetPlayer()
     {
-        if (!player)
-        {
-            player = playerGO.GetComponent<Unit>();
-        }
         return player;
     }
 
