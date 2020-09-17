@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c0f1bf61cf1526d4d89e1da96b6ec281, type: 3}
   m_Color: {r: 0.2470588, g: 0.8862745, b: 0.37564066, a: 1}
   m_FlipX: 0
@@ -97,10 +97,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Player
   unitLevel: 1
-  lastBehaviourA: 0
-  lastBehaviourD: 0
+  behaviourA: 0
+  behaviourD: 0
   unitBehaviourA: 
   unitBehaviourD: 
-  damage: 5
+  damage: 4
   maxHP: 50
-  currentHP: 40
+  currentHP: 50

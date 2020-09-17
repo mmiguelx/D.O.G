@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 
@@ -15,27 +16,47 @@ public class BattleSystem : MonoBehaviour
     Unit playerUnit;
     Unit enemyUnit;
 
+    public AudioSource audioSource;
+
     public BattleState state;
+
+    public BattleHUD playerHUD;
+    public BattleHUD enemyHUD;
+    public ScreenHUD screenHUD;
+
+    private bool onAction = false;
+
+    public FadeLoader animator;
 
     // Start is called before the first frame update
     void Start()
     {
         state = BattleState.START;
+        screenHUD.eraseLog();
         StartCoroutine(SetupBattle());
+
     }
 
     IEnumerator SetupBattle()
     {
         GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
-        playerUnit = playerGO.GetComponent<Unit>();
+        //playerUnit = playerGO.GetComponent<Unit>();
+        playerUnit = BattleInfoBridge.instance.GetPlayer();
 
         GameObject enemyGo = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGo.GetComponent<Unit>();
-
-        //meter HUD
-        Debug.Log("starting...");
+        enemyUnit.initEUnit();
+        //audioSource = BattleInfoBridge.instance.GetEnemy().audioSource;
+        audioSource.clip = BattleInfoBridge.instance.GetEnemy().audioSource.clip;
+        audioSource.outputAudioMixerGroup = BattleInfoBridge.instance.GetEnemy().audioSource.outputAudioMixerGroup;
+        audioSource.Play();
+        screenHUD.writeLog("Starting...");
+        playerHUD.SetHUD(playerUnit);
+        enemyHUD.SetHUD(enemyUnit);
 
         yield return new WaitForSeconds(2f);
+
+        screenHUD.eraseLog();
 
         state = BattleState.PLAYERTURN;
         PlayerTurn();
@@ -43,22 +64,6 @@ public class BattleSystem : MonoBehaviour
 
     public int actionResolver(int action, int enemyAction)
     {
-        //INFO------
-        if (action == 0)
-            Debug.Log("Has sacado piedra");
-        if (action == 1)
-            Debug.Log("Has sacado papel");
-        if (action == 2)
-            Debug.Log("Has sacado tijera");
-
-        if (enemyAction == 0)
-            Debug.Log("El enemigo ha sacado piedra");
-        if (enemyAction == 1)
-            Debug.Log("El enemigo ha sacado papel");
-        if (enemyAction == 2)
-            Debug.Log("El enemigo ha sacado tijera");
-        //--------
-
         //devolvera 0 si el jugador falla, 1 si empata y 2 si acierta
         if (enemyAction == action)
             return 1;
@@ -68,36 +73,68 @@ public class BattleSystem : MonoBehaviour
             return 0;
     }
 
-    IEnumerator PlayerAttack(int action)
+    void CombatLog(int action, bool type)
     {
-        //comprobar quien gana y ejecutar acción ofensiva según ganar empatar o perder
-        int enemyAction = enemyUnit.getActionD(); //acción enemiga simple
-
-        int resolve = actionResolver(action, enemyAction);
-        bool isDead = enemyUnit.TakeDamage(resolve * playerUnit.damage);
-        Debug.Log("Se han hecho " + resolve * playerUnit.damage + " puntos de daño");
-        //actualizar HUD
-        if (isDead)
+        if (type)
         {
-            state = BattleState.WON;
-            EndBattle();
+            if (action == 0)
+                screenHUD.writeLog("You choose rock\n");
+            if (action == 1)
+                screenHUD.writeLog("You choose paper\n");
+            if (action == 2)
+                screenHUD.writeLog("You choose scissors\n");
         }
         else
         {
-            state = BattleState.ENEMYTURN;
-            //cambiar moneda
-            //StartCoroutine(EnemyTurn());
-            EnemyTurn();
+            if (action == 0)
+                screenHUD.writeLog(enemyUnit.unitName + " choose rock\n");
+            if (action == 1)
+                screenHUD.writeLog(enemyUnit.unitName + " choose paper\n");
+            if (action == 2)
+                screenHUD.writeLog(enemyUnit.unitName + " choose scissors\n");
         }
-        yield return new WaitForSeconds(2f);
+        CombatHistory.instance.Add(action);
+    }
 
-        // comprobar si el enemigo esta muerto y cambiar estado según lo que ha pasado
+    IEnumerator PlayerAttack(int action)
+    {
+        //comprobar quien gana y ejecutar acción ofensiva según ganar empatar o perder
+        CombatLog(action, true);
+        yield return new WaitForSeconds(1f);
+
+        int enemyAction = enemyUnit.getActionD(); //acción enemiga simple
+        CombatLog(enemyAction, false);
+        yield return new WaitForSeconds(1f);
+
+        int resolve = actionResolver(action, enemyAction);
+        bool isDead = enemyUnit.TakeDamage(resolve * playerUnit.damage);
+        screenHUD.writeLog("You did " + resolve * playerUnit.damage + " points of damage\n");
+        enemyHUD.SetHP(enemyUnit.currentHP);
+        if (isDead)
+        {
+            state = BattleState.WON;
+            BattleInfoBridge.instance.SetPlayer(playerUnit);
+            StartCoroutine(EndBattle());
+        }
+        else
+        {
+            yield return new WaitForSeconds(2.5f);
+            screenHUD.eraseLog();
+            state = BattleState.ENEMYTURN;
+            EnemyTurn();
+            screenHUD.changeState();
+        }
     }
 
     IEnumerator EnemyAttack(int action)
     {
         //comprobar quien gana y ejecutar acción defensiva según ganar empatar o perder
+
+        CombatLog(action, true);
+        yield return new WaitForSeconds(1f);
         int enemyAction = enemyUnit.getActionA(); //acción enemiga simple
+        CombatLog(enemyAction, false);
+        yield return new WaitForSeconds(1f);
 
         int resolve = actionResolver(action, enemyAction);
         if (resolve != 1)
@@ -105,59 +142,81 @@ public class BattleSystem : MonoBehaviour
         if (resolve > 2)
             resolve = 0;
         bool isDead = playerUnit.TakeDamage(resolve * enemyUnit.damage);
-        Debug.Log("Se han recibido " + resolve * enemyUnit.damage + " puntos de daño");
-        //actualizar HUD
+        screenHUD.writeLog("Se han recibido " + resolve * enemyUnit.damage + " puntos de daño\n");
+        if (enemyUnit.unitName == "Boss" && resolve == 2) //cosas de boss implementadas de forma chorra
+        {
+            enemyUnit.damage++;
+            screenHUD.writeLog("La fuerza del boss ha aumentado!");
+        }
+        playerHUD.SetHP(playerUnit.currentHP);
         if (isDead)
         {
             state = BattleState.LOST;
-            EndBattle();
+            StartCoroutine(EndBattle());
         }
         else
         {
+            yield return new WaitForSeconds(2.5f);
+            screenHUD.eraseLog();
             state = BattleState.PLAYERTURN;
-            //cambiar moneda
-            //StartCoroutine(PlayerTurn());
             PlayerTurn();
+            screenHUD.changeState();
         }
-        yield return new WaitForSeconds(2f);
-
-        // comprobar si has muerto y cambiar estado según lo que ha pasado
     }
 
-    void EndBattle()
+    IEnumerator EndBattle()
     {
         if (state == BattleState.WON)
         {
-            Debug.Log("Has ganado");
+            screenHUD.writeLog("You win\n");
+            yield return new WaitForSeconds(1f);
+            screenHUD.writeLog("You leveled up!\n");
+            playerUnit.unitLevel++;
+            if (playerUnit.unitLevel % 2 == 0)
+            {
+                screenHUD.writeLog("You gain 1 more damage\n");
+                playerUnit.damage++;
+            }
+            else
+            {
+                screenHUD.writeLog("You gain 5 more health\n");
+                playerUnit.maxHP += 5;
+                playerUnit.currentHP += 5;
+            }
+            yield return new WaitForSeconds(2f);
+            animator.fadeExit(2);
+            //SceneManager.LoadScene(1);
         }
         else if (state == BattleState.LOST)
         {
-            Debug.Log("Has perdido");
+            screenHUD.writeLog("You lose");
+            yield return new WaitForSeconds(2f);
+            animator.fadeExit(1);
+            //SceneManager.LoadScene(0);
         }
+        CombatHistory.instance.Clear();
     }
     void PlayerTurn()
     {
-        Debug.Log("Player turn");
-        //actualizar HUD para enseñar que hay que elegir una acción de ataque
-
+        screenHUD.writeLog("Player turn\n");
+        onAction = false;
     }
 
     void EnemyTurn()
     {
-        Debug.Log("Enemy turn");
-        //actualizar HUD para enseñar que hay que elegir una acción de defensa
-
+        screenHUD.writeLog("Enemy turn\n");
+        onAction = false;
     }
 
     public void OnActionButton(int action)
     {
+        if (onAction)
+            return;
+        else
+            onAction = true;
         if (state == BattleState.PLAYERTURN)
-        {
             StartCoroutine(PlayerAttack(action));
-        }
         else if (state == BattleState.ENEMYTURN)
-        {
             StartCoroutine(EnemyAttack(action));
-        }
     }
 }
