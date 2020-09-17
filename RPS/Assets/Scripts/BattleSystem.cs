@@ -28,6 +28,9 @@ public class BattleSystem : MonoBehaviour
 
     public FadeLoader animator;
 
+    public Cutscene Mid;
+    public Cutscene Ending;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -184,8 +187,18 @@ public class BattleSystem : MonoBehaviour
                 playerUnit.currentHP += 5;
             }
             yield return new WaitForSeconds(2f);
-            animator.fadeExit(2);
-            //SceneManager.LoadScene(1);
+            if (enemyUnit.unitName == "Goblin")
+            {
+                 animator.reproduceCutscene(Mid);
+                 animator.fadeExit(4);
+            }
+            else if (enemyUnit.unitName == "Boss"){
+                animator.reproduceCutscene(Ending);
+                animator.fadeExit(4);
+            }
+            else {
+                animator.fadeExit(2);
+            }
         }
         else if (state == BattleState.LOST)
         {
