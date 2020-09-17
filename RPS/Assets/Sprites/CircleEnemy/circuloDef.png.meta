@@ -1,79 +1,79 @@
 fileFormatVersion: 2
-guid: b59c61b35b80a90419be9dbfcde64c76
+guid: 7d8a4d1878b9c9047b83b9ffe5e2cfa5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8648683471048144997
-    second: circuloDeff_0
+      213: -4101932047316479247
+    second: circuloDef_0
   - first:
-      213: 7923639736763595870
-    second: circuloDeff_1
+      213: -7002279892172829839
+    second: circuloDef_1
   - first:
-      213: -4061627961611437504
-    second: circuloDeff_2
+      213: 2561631854596700688
+    second: circuloDef_2
   - first:
-      213: 8086281385700951600
-    second: circuloDeff_3
+      213: -4001559847761911779
+    second: circuloDef_3
   - first:
-      213: 8365193365223556652
-    second: circuloDeff_4
+      213: -895676064455152712
+    second: circuloDef_4
   - first:
-      213: -5024604698088733281
-    second: circuloDeff_5
+      213: -6481032777905821465
+    second: circuloDef_5
   - first:
-      213: 3429449569079604469
-    second: circuloDeff_6
+      213: -4153033633361570141
+    second: circuloDef_6
   - first:
-      213: -5875167810952026231
-    second: circuloDeff_7
+      213: -1248377595243866582
+    second: circuloDef_7
   - first:
-      213: -4791393867378569358
-    second: circuloDeff_8
+      213: -2716432892814153755
+    second: circuloDef_8
   - first:
-      213: -777898614626323253
-    second: circuloDeff_9
+      213: 6146855890482167834
+    second: circuloDef_9
   - first:
-      213: -2838679866996168604
-    second: circuloDeff_10
+      213: 1550768377075749144
+    second: circuloDef_10
   - first:
-      213: -8405428271513308073
-    second: circuloDeff_11
+      213: -13026141181276670
+    second: circuloDef_11
   - first:
-      213: -156906486642329552
-    second: circuloDeff_12
+      213: 6264065159346615111
+    second: circuloDef_12
   - first:
-      213: 4981795583738390565
-    second: circuloDeff_13
+      213: -823923480377860955
+    second: circuloDef_13
   - first:
-      213: -4598193706372053859
-    second: circuloDeff_14
+      213: -300850802370193245
+    second: circuloDef_14
   - first:
-      213: -6644636439270828160
-    second: circuloDeff_15
+      213: 5998461103939129743
+    second: circuloDef_15
   - first:
-      213: -7169216533124078221
-    second: circuloDeff_16
+      213: 3449371847564915701
+    second: circuloDef_16
   - first:
-      213: -6107907026504380128
-    second: circuloDeff_17
+      213: 7388696224536871790
+    second: circuloDef_17
   - first:
-      213: -7664036547743939486
-    second: circuloDeff_18
+      213: -6269836294879561152
+    second: circuloDef_18
   - first:
-      213: 505055778739616795
-    second: circuloDeff_19
+      213: 214763078521039323
+    second: circuloDef_19
   - first:
-      213: -5109452141465084310
-    second: circuloDeff_20
+      213: -2247014932029746586
+    second: circuloDef_20
   - first:
-      213: -1958767453405996075
-    second: circuloDeff_21
+      213: -2799584368992731339
+    second: circuloDef_21
   - first:
-      213: -851258441178872017
-    second: circuloDeff_22
+      213: 6775646343229026850
+    second: circuloDef_22
   - first:
-      213: -6197283200223721810
-    second: circuloDeff_23
+      213: -328820302268678206
+    second: circuloDef_23
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -161,7 +161,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: circuloDeff_0
+      name: circuloDef_0
       rect:
         serializedVersion: 2
         x: 0
@@ -175,14 +175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 568fd925bcb460870800000000000000
-      internalID: 8648683471048144997
+      spriteID: 1f219e239820317c0800000000000000
+      internalID: -4101932047316479247
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_1
+      name: circuloDef_1
       rect:
         serializedVersion: 2
         x: 910
@@ -196,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5cb6fdfb5c66fd60800000000000000
-      internalID: 7923639736763595870
+      spriteID: 17b8d29a987e2de90800000000000000
+      internalID: -7002279892172829839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_2
+      name: circuloDef_2
       rect:
         serializedVersion: 2
         x: 1820
@@ -217,14 +217,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04a3b5a63e232a7c0800000000000000
-      internalID: -4061627961611437504
+      spriteID: 01abf82899ebc8320800000000000000
+      internalID: 2561631854596700688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_3
+      name: circuloDef_3
       rect:
         serializedVersion: 2
         x: 2730
@@ -238,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0360f8cc31e383070800000000000000
-      internalID: 8086281385700951600
+      spriteID: d106fa6058a9778c0800000000000000
+      internalID: -4001559847761911779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_4
+      name: circuloDef_4
       rect:
         serializedVersion: 2
         x: 3640
@@ -259,14 +259,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c26ca938b03271470800000000000000
-      internalID: 8365193365223556652
+      spriteID: 8bba4586d5be193f0800000000000000
+      internalID: -895676064455152712
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_5
+      name: circuloDef_5
       rect:
         serializedVersion: 2
         x: 4550
@@ -280,14 +280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9589a906a4054ab0800000000000000
-      internalID: -5024604698088733281
+      spriteID: 7e8a247c60fbe06a0800000000000000
+      internalID: -6481032777905821465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_6
+      name: circuloDef_6
       rect:
         serializedVersion: 2
         x: 5460
@@ -301,14 +301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f43b1c863ad79f20800000000000000
-      internalID: 3429449569079604469
+      spriteID: 3a6db370ae57d56c0800000000000000
+      internalID: -4153033633361570141
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_7
+      name: circuloDef_7
       rect:
         serializedVersion: 2
         x: 6370
@@ -322,14 +322,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98725600106377ea0800000000000000
-      internalID: -5875167810952026231
+      spriteID: a26dee9f03fdcaee0800000000000000
+      internalID: -1248377595243866582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_8
+      name: circuloDef_8
       rect:
         serializedVersion: 2
         x: 0
@@ -343,14 +343,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27f4aebd9ac818db0800000000000000
-      internalID: -4791393867378569358
+      spriteID: 5e720af1daa4d4ad0800000000000000
+      internalID: -2716432892814153755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_9
+      name: circuloDef_9
       rect:
         serializedVersion: 2
         x: 910
@@ -364,14 +364,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc4fdebd4595435f0800000000000000
-      internalID: -777898614626323253
+      spriteID: a1005bd6dd40e4550800000000000000
+      internalID: 6146855890482167834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_10
+      name: circuloDef_10
       rect:
         serializedVersion: 2
         x: 1820
@@ -385,14 +385,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 468e3a073bbfa98d0800000000000000
-      internalID: -2838679866996168604
+      spriteID: 81152846f9f658510800000000000000
+      internalID: 1550768377075749144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_11
+      name: circuloDef_11
       rect:
         serializedVersion: 2
         x: 2730
@@ -406,14 +406,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7547c6b558be95b80800000000000000
-      internalID: -8405428271513308073
+      spriteID: 20e881a2bc8b1dff0800000000000000
+      internalID: -13026141181276670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_12
+      name: circuloDef_12
       rect:
         serializedVersion: 2
         x: 3640
@@ -427,14 +427,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 038bab8b16e82ddf0800000000000000
-      internalID: -156906486642329552
+      spriteID: 74371c0f21e6ee650800000000000000
+      internalID: 6264065159346615111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_13
+      name: circuloDef_13
       rect:
         serializedVersion: 2
         x: 4550
@@ -448,14 +448,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 528265050b4e22540800000000000000
-      internalID: 4981795583738390565
+      spriteID: 5ac59fdb5f5d094f0800000000000000
+      internalID: -823923480377860955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_14
+      name: circuloDef_14
       rect:
         serializedVersion: 2
         x: 5460
@@ -469,14 +469,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d94c143bf2fef20c0800000000000000
-      internalID: -4598193706372053859
+      spriteID: 3a8555a0ac923dbf0800000000000000
+      internalID: -300850802370193245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_15
+      name: circuloDef_15
       rect:
         serializedVersion: 2
         x: 6370
@@ -490,14 +490,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08755affc5289c3a0800000000000000
-      internalID: -6644636439270828160
+      spriteID: f811a43c790de3350800000000000000
+      internalID: 5998461103939129743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_16
+      name: circuloDef_16
       rect:
         serializedVersion: 2
         x: 0
@@ -511,14 +511,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37528491c83d18c90800000000000000
-      internalID: -7169216533124078221
+      spriteID: 5f3f6587b61aedf20800000000000000
+      internalID: 3449371847564915701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_17
+      name: circuloDef_17
       rect:
         serializedVersion: 2
         x: 910
@@ -532,14 +532,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0211814abea5c3ba0800000000000000
-      internalID: -6107907026504380128
+      spriteID: e634ac8b11ce98660800000000000000
+      internalID: 7388696224536871790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_18
+      name: circuloDef_18
       rect:
         serializedVersion: 2
         x: 1820
@@ -553,14 +553,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2648c1a9d5fd3a590800000000000000
-      internalID: -7664036547743939486
+      spriteID: 04a3adbdb111df8a0800000000000000
+      internalID: -6269836294879561152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_19
+      name: circuloDef_19
       rect:
         serializedVersion: 2
         x: 2730
@@ -574,14 +574,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1c788b0e81520700800000000000000
-      internalID: 505055778739616795
+      spriteID: bd9ad1ec1edfaf200800000000000000
+      internalID: 214763078521039323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_20
+      name: circuloDef_20
       rect:
         serializedVersion: 2
         x: 3640
@@ -595,14 +595,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6e5d1f29549719b0800000000000000
-      internalID: -5109452141465084310
+      spriteID: 6625e5313dff0d0e0800000000000000
+      internalID: -2247014932029746586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_21
+      name: circuloDef_21
       rect:
         serializedVersion: 2
         x: 4550
@@ -616,14 +616,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5db932e016f01d4e0800000000000000
-      internalID: -1958767453405996075
+      spriteID: 53fb37769d0e529d0800000000000000
+      internalID: -2799584368992731339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_22
+      name: circuloDef_22
       rect:
         serializedVersion: 2
         x: 5460
@@ -637,14 +637,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f270b7935f8bf24f0800000000000000
-      internalID: -851258441178872017
+      spriteID: 22237d3437ee70e50800000000000000
+      internalID: 6775646343229026850
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: circuloDeff_23
+      name: circuloDef_23
       rect:
         serializedVersion: 2
         x: 6370
@@ -658,8 +658,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea64b2693c3def9a0800000000000000
-      internalID: -6197283200223721810
+      spriteID: 2cfb6506dabcf6bf0800000000000000
+      internalID: -328820302268678206
       vertices: []
       indices: 
       edges: []
