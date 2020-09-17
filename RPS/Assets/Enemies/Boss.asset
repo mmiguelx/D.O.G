@@ -21,3 +21,5 @@ MonoBehaviour:
   DBehaviourType: 3
   ABehaviour: 
   DBehaviour: 03000000
+  audioSource: {fileID: 3097773307348153921, guid: d6e2d6855f0c9ce4b9becf7016ff73dc,
+    type: 3}

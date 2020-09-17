@@ -153,7 +153,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0.91}
   m_LocalScale: {x: 0.0015137738, y: 0.1043728, z: 0.01178782}
   m_Children:
-  - {fileID: 1493324564}
+  - {fileID: 2036734284}
   m_Father: {fileID: 428727343}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1493324566}
+      - m_Target: {fileID: 2036734285}
         m_TargetAssemblyTypeName: BattleLoader, Assembly-CSharp
         m_MethodName: loadBattle
         m_Mode: 2
@@ -414,7 +414,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 944835376}
-        m_TargetAssemblyTypeName: BattleLoader, Assembly-CSharp
+        m_TargetAssemblyTypeName: BattleLoader2, Assembly-CSharp
         m_MethodName: loadBattle
         m_Mode: 2
         m_Arguments:
@@ -470,72 +470,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5464071175095687004}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &409251304
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 409251305}
-  - component: {fileID: 409251307}
-  - component: {fileID: 409251306}
-  m_Layer: 0
-  m_Name: BattleLoader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &409251305
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409251304}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -131.81682, y: -7.518188, z: -52269.81}
-  m_LocalScale: {x: 84.83333, y: 84.83333, z: 84.83333}
-  m_Children: []
-  m_Father: {fileID: 573601898}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &409251306
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409251304}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d6fa0931deafed34fa9da08d9cd49563, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &409251307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409251304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ab83b5857485d848ac62c9e02f44049, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  battleId: 3
-  animator: {fileID: 409251306}
-  scene: 3
 --- !u!1 &428727341
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +587,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.0015137738, y: 0.1043728, z: 0.01178782}
   m_Children:
-  - {fileID: 409251305}
+  - {fileID: 1368204418}
   m_Father: {fileID: 428727343}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -705,7 +639,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 409251307}
+      - m_Target: {fileID: 1368204419}
         m_TargetAssemblyTypeName: BattleLoader, Assembly-CSharp
         m_MethodName: loadBattle
         m_Mode: 2
@@ -756,7 +690,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 573601897}
   m_CullTransparentMesh: 0
---- !u!1 &739587473
+--- !u!1 &686163474
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -764,64 +698,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 739587474}
-  - component: {fileID: 739587476}
-  - component: {fileID: 739587475}
+  - component: {fileID: 686163475}
+  - component: {fileID: 686163476}
   m_Layer: 0
-  m_Name: BattleLoader
+  m_Name: BattleLoader (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &739587474
+--- !u!4 &686163475
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 739587473}
+  m_GameObject: {fileID: 686163474}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 148.1813, y: -7.518188, z: -52269.81}
-  m_LocalScale: {x: 84.83333, y: 84.83333, z: 84.83333}
+  m_LocalPosition: {x: -291.8593, y: -23.752556, z: -52269.81}
+  m_LocalScale: {x: 84.83333, y: 84.833336, z: 84.83333}
   m_Children: []
-  m_Father: {fileID: 1973136173}
+  m_Father: {fileID: 1252356767}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &739587475
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 739587473}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d6fa0931deafed34fa9da08d9cd49563, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &739587476
+--- !u!114 &686163476
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 739587473}
+  m_GameObject: {fileID: 686163474}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ab83b5857485d848ac62c9e02f44049, type: 3}
+  m_Script: {fileID: 11500000, guid: 17013f262a26c45478937e8c1a4e0f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleId: 1
-  animator: {fileID: 739587475}
-  scene: 3
+  battleId: 4
+  FadeLoader: {fileID: 1265988493}
 --- !u!1 &792094440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,6 +916,51 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &936562466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 936562467}
+  - component: {fileID: 936562468}
+  m_Layer: 0
+  m_Name: BattleLoader (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &936562467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936562466}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 148.17151, y: -7.518324, z: -52269.81}
+  m_LocalScale: {x: 84.83333, y: 84.833336, z: 84.83333}
+  m_Children: []
+  m_Father: {fileID: 1973136173}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &936562468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936562466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17013f262a26c45478937e8c1a4e0f1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleId: 1
+  FadeLoader: {fileID: 1265988493}
 --- !u!1 &944835375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,7 +971,6 @@ GameObject:
   m_Component:
   - component: {fileID: 944835377}
   - component: {fileID: 944835376}
-  - component: {fileID: 944835378}
   m_Layer: 0
   m_Name: BattleLoader
   m_TagString: Untagged
@@ -1030,12 +987,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 944835375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ab83b5857485d848ac62c9e02f44049, type: 3}
+  m_Script: {fileID: 11500000, guid: 17013f262a26c45478937e8c1a4e0f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   battleId: 0
-  animator: {fileID: 944835378}
-  scene: 3
+  FadeLoader: {fileID: 1265988493}
 --- !u!4 &944835377
 Transform:
   m_ObjectHideFlags: 0
@@ -1050,25 +1006,6 @@ Transform:
   m_Father: {fileID: 298980580}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &944835378
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944835375}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d6fa0931deafed34fa9da08d9cd49563, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &956124715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,7 +1083,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.0015137738, y: 0.1043728, z: 0.01178782}
   m_Children:
-  - {fileID: 2029511526}
+  - {fileID: 686163475}
   m_Father: {fileID: 428727343}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1198,7 +1135,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2029511528}
+      - m_Target: {fileID: 686163476}
         m_TargetAssemblyTypeName: BattleLoader, Assembly-CSharp
         m_MethodName: loadBattle
         m_Mode: 2
@@ -1298,7 +1235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab83b5857485d848ac62c9e02f44049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleId: 0
   animator: {fileID: 1265988492}
   scene: 2
 --- !u!4 &1265988494
@@ -1316,7 +1252,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1493324563
+--- !u!1 &1368204417
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1324,64 +1260,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1493324564}
-  - component: {fileID: 1493324566}
-  - component: {fileID: 1493324565}
+  - component: {fileID: 1368204418}
+  - component: {fileID: 1368204419}
   m_Layer: 0
-  m_Name: BattleLoader
+  m_Name: BattleLoader (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1493324564
+--- !u!4 &1368204418
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1493324563}
+  m_GameObject: {fileID: 1368204417}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.180948, y: -7.518188, z: -52269.81}
-  m_LocalScale: {x: 84.83333, y: 84.83333, z: 84.83333}
+  m_LocalPosition: {x: -131.82979, y: -7.518324, z: -52269.81}
+  m_LocalScale: {x: 84.83333, y: 84.833336, z: 84.83333}
   m_Children: []
-  m_Father: {fileID: 67239615}
+  m_Father: {fileID: 573601898}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1493324565
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1493324563}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d6fa0931deafed34fa9da08d9cd49563, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1493324566
+--- !u!114 &1368204419
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1493324563}
+  m_GameObject: {fileID: 1368204417}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ab83b5857485d848ac62c9e02f44049, type: 3}
+  m_Script: {fileID: 11500000, guid: 17013f262a26c45478937e8c1a4e0f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleId: 2
-  animator: {fileID: 1493324565}
-  scene: 3
+  battleId: 3
+  FadeLoader: {fileID: 1265988493}
 --- !u!1 &1512530090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1823,7 +1738,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.0015137738, y: 0.1043728, z: 0.01178782}
   m_Children:
-  - {fileID: 739587474}
+  - {fileID: 936562467}
   m_Father: {fileID: 428727343}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1875,7 +1790,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 739587476}
+      - m_Target: {fileID: 936562468}
         m_TargetAssemblyTypeName: BattleLoader, Assembly-CSharp
         m_MethodName: loadBattle
         m_Mode: 2
@@ -1926,7 +1841,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973136172}
   m_CullTransparentMesh: 0
---- !u!1 &2029511525
+--- !u!1 &2036734283
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1934,64 +1849,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2029511526}
-  - component: {fileID: 2029511528}
-  - component: {fileID: 2029511527}
+  - component: {fileID: 2036734284}
+  - component: {fileID: 2036734285}
   m_Layer: 0
-  m_Name: BattleLoader
+  m_Name: BattleLoader (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2029511526
+--- !u!4 &2036734284
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2029511525}
+  m_GameObject: {fileID: 2036734283}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -271.81976, y: -7.518188, z: -52269.81}
-  m_LocalScale: {x: 84.83333, y: 84.83333, z: 84.83333}
+  m_LocalPosition: {x: 8.180948, y: -7.518324, z: -52347.004}
+  m_LocalScale: {x: 84.83333, y: 84.833336, z: 84.83333}
   m_Children: []
-  m_Father: {fileID: 1252356767}
+  m_Father: {fileID: 67239615}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &2029511527
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2029511525}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d6fa0931deafed34fa9da08d9cd49563, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2029511528
+--- !u!114 &2036734285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2029511525}
+  m_GameObject: {fileID: 2036734283}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ab83b5857485d848ac62c9e02f44049, type: 3}
+  m_Script: {fileID: 11500000, guid: 17013f262a26c45478937e8c1a4e0f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleId: 4
-  animator: {fileID: 2029511527}
-  scene: 3
+  battleId: 2
+  FadeLoader: {fileID: 1265988493}
 --- !u!1 &2038537129
 GameObject:
   m_ObjectHideFlags: 0

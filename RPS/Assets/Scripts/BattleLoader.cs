@@ -1,14 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class BattleLoader : MonoBehaviour
 {
     static int[] access = new int[] {1, 0, 0, 0, 0};
     public int battleId;
-    public Animator animator;
-    public int scene;
+    public FadeLoader FadeLoader;
 
     public void loadBattle(Enemy eventEnemy)
     {
@@ -18,19 +16,7 @@ public class BattleLoader : MonoBehaviour
             if (battleId != access.Length - 1)
                 access[battleId + 1] = 1;
             access[battleId] = 0;
-            fadeExit(scene);
+            FadeLoader.fadeExit(3);
         }
     }
-
-    public void fadeExit(int ret)
-    {
-        scene = ret;
-        animator.SetTrigger("FadeOut");
-    }
-
-    public void changeScene()
-    {
-        SceneManager.LoadScene(scene);
-    }
 }
-

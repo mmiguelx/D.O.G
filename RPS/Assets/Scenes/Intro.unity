@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 1017354146}
   - component: {fileID: 1017354145}
   m_Layer: 0
-  m_Name: BattleLoader
+  m_Name: FadeLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,7 +271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab83b5857485d848ac62c9e02f44049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleId: 0
   animator: {fileID: 1017354145}
   scene: 1
 --- !u!4 &1017354147

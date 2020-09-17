@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Intro : MonoBehaviour
 {
-    public BattleLoader bl;
+    public FadeLoader bl;
     // Start is called before the first frame update
     void Start()
     {

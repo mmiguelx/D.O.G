@@ -9,13 +9,14 @@ public class BattleSystem : MonoBehaviour
 {
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
-    public Enemy enemy;
 
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
 
     Unit playerUnit;
     Unit enemyUnit;
+
+    public AudioSource audioSource;
 
     public BattleState state;
 
@@ -25,7 +26,7 @@ public class BattleSystem : MonoBehaviour
 
     private bool onAction = false;
 
-    public BattleLoader animator;
+    public FadeLoader animator;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.START;
         screenHUD.eraseLog();
         StartCoroutine(SetupBattle());
+
     }
 
     IEnumerator SetupBattle()
@@ -44,12 +46,11 @@ public class BattleSystem : MonoBehaviour
         GameObject enemyGo = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGo.GetComponent<Unit>();
         enemyUnit.initEUnit();
-
+        //audioSource = BattleInfoBridge.instance.GetEnemy().audioSource;
+        audioSource.clip = BattleInfoBridge.instance.GetEnemy().audioSource.clip;
+        audioSource.outputAudioMixerGroup = BattleInfoBridge.instance.GetEnemy().audioSource.outputAudioMixerGroup;
+        audioSource.Play();
         screenHUD.writeLog("Starting...");
-        if (enemyUnit.unitName == "Boss")
-        {
-
-        }
         playerHUD.SetHUD(playerUnit);
         enemyHUD.SetHUD(enemyUnit);
 

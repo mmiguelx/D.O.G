@@ -14,4 +14,5 @@ public class Enemy : ScriptableObject
     public int DBehaviourType;
     public int[] ABehaviour;
     public int[] DBehaviour;
+    public AudioSource audioSource;
 }
