@@ -2121,8 +2121,68 @@ PrefabInstance:
       objectReference: {fileID: 428727341}
     - target: {fileID: 5464071176121455595, guid: 5e22f8cde4ae5244daac92b313139fdc,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464071176121455595, guid: 5e22f8cde4ae5244daac92b313139fdc,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464071176121455595, guid: 5e22f8cde4ae5244daac92b313139fdc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1265988493}
+    - target: {fileID: 5464071176121455595, guid: 5e22f8cde4ae5244daac92b313139fdc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FadeLoader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464071176121455595, guid: 5e22f8cde4ae5244daac92b313139fdc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: fadeExit
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464071176121455595, guid: 5e22f8cde4ae5244daac92b313139fdc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464071176121455595, guid: 5e22f8cde4ae5244daac92b313139fdc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464071176121455595, guid: 5e22f8cde4ae5244daac92b313139fdc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: BattleLoader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464071176121455595, guid: 5e22f8cde4ae5244daac92b313139fdc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464071176121455595, guid: 5e22f8cde4ae5244daac92b313139fdc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464071176121455595, guid: 5e22f8cde4ae5244daac92b313139fdc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 944835376}
+    - target: {fileID: 5464071176121455595, guid: 5e22f8cde4ae5244daac92b313139fdc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: resetAccess
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464071176121455595, guid: 5e22f8cde4ae5244daac92b313139fdc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e22f8cde4ae5244daac92b313139fdc, type: 3}

@@ -19,4 +19,13 @@ public class BattleLoader : MonoBehaviour
             FadeLoader.fadeExit(3);
         }
     }
+
+    public void resetAccess()
+    {
+        access[0] = 1;
+        for (int i = 1; i < access.Length; i++)
+        {
+            access[i] = 0;
+        }
+    }
 }
