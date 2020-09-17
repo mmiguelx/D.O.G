@@ -8,6 +8,11 @@ public class FadeLoader : MonoBehaviour
     public Animator animator;
     public int scene;
 
+    public void reproduceCutscene(Cutscene cutscene)
+    {
+        CutsceneLoader.instance.SetCutscene(cutscene);
+    }
+
     public void fadeExit(int ret)
     {
         scene = ret;
