@@ -6,44 +6,61 @@ public class ButtonBehaviour : MonoBehaviour
     public Animator animator2;
     public Animator animator3;
     public Animator animator4;
+    public Animator animatorBoss;
 
 
     //For the proyect
     public void btnRed()
     {
-        animator.SetBool("red", true);
-        animator2.SetBool("red", true);
-        animator3.SetBool("red", true);
-        animator4.SetBool("red", true);
+        animator.SetTrigger("red");
+        animator2.SetTrigger("red");
+        animator3.SetTrigger("red");
+        animator4.SetTrigger("red");
+        animatorBoss.SetTrigger("red");
     }
     public void btnBlue()
     {
-        animator.SetBool("blue", true);
-        animator2.SetBool("blue", true);
-        animator3.SetBool("blue", true);
-        animator4.SetBool("blue", true);
+        animator.SetTrigger("blue");
+        animator2.SetTrigger("blue");
+        animator3.SetTrigger("blue");
+        animator4.SetTrigger("blue");
+        animatorBoss.SetTrigger("blue");
     }
     public void btnGreen()
     {
-        animator.SetBool("green", true);
-        animator2.SetBool("green", true);
-        animator3.SetBool("green", true);
-        animator4.SetBool("green", true);
+        animator.SetTrigger("green");
+        animator2.SetTrigger("green");
+        animator3.SetTrigger("green");
+        animator4.SetTrigger("green");
+        animatorBoss.SetTrigger("green");
     }
     public void btnAtt()
     {
-        if (animator.GetBool("att"))
+        if (animator.GetBool("att") || animatorBoss.GetBool("att"))
         {
             animator.SetBool("att", false);
             animator2.SetBool("att", false);
             animator3.SetBool("att", false);
             animator4.SetBool("att", false);
+            animatorBoss.SetBool("att", false);
         } else
         {
             animator.SetBool("att", true);
             animator2.SetBool("att", true);
             animator3.SetBool("att", true);
             animator4.SetBool("att", true);
+            animatorBoss.SetBool("att", true);
+        }
+    }
+    public void btnPhase()
+    {
+        if (animatorBoss.GetBool("phase"))
+        {
+            animatorBoss.SetBool("phase", false);
+        }
+        else
+        {
+            animatorBoss.SetBool("phase", true);
         }
     }
     public void btnChangePosition ()
@@ -52,6 +69,18 @@ public class ButtonBehaviour : MonoBehaviour
         Flip(animator2);
         Flip(animator3);
         Flip(animator4);
+        Flip(animatorBoss);
+    }
+
+    public void btnSwitch()
+    {
+        SwitchActive(animator);
+        SwitchActive(animator2);
+        SwitchActive(animator3);
+        SwitchActive(animator4);
+        SwitchActive(animatorBoss);
+
+
     }
     private void Flip(Animator animator)
     {
@@ -64,6 +93,17 @@ public class ButtonBehaviour : MonoBehaviour
         {
             theScale.x = 1;
             animator.transform.localScale = theScale;
+        }
+    }
+    private void SwitchActive(Animator animator)
+    {
+        if (animator.gameObject.activeSelf)
+        {
+            animator.gameObject.SetActive(false);
+        }
+        else
+        {
+            animator.gameObject.SetActive(true);
         }
     }
 
