@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: HeavyBot
   level: 4
-  damage: 5
-  hp: 10
+  damage: 6
+  hp: 30
   icon: {fileID: 0}
   ABehaviourType: 0
   DBehaviourType: 0

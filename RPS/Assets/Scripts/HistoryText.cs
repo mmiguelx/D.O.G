@@ -18,6 +18,7 @@ public class HistoryText : MonoBehaviour
     public AudioClip[] ac; //clips de audio
     public AudioClip bgmc; //clips de bgm
     public int[] whatClip; //que clip reproducir en la escena actual
+    public AudioClip bgmf; //OneShot en último mensaje
 
     public int nextScene; //la siguiente escena a la que irá al terminar la cutscene
 
@@ -33,6 +34,7 @@ public class HistoryText : MonoBehaviour
         nextScene = c.nextScene;
         bgmc = c.bgmusic;
         bgm.clip = bgmc;
+        bgmf = c.bgeffect;
     }
     void Start()
     {
@@ -79,7 +81,11 @@ public class HistoryText : MonoBehaviour
         {
             selectedText++;
             if (selectedText == cutsceneTexts.Length)
+            {
+                if (bgmf == true)
+                    bgm.PlayOneShot(bgmf);
                 ExitCutscene();
+            }
             else
                 StartCoroutine(showText());
         }

@@ -31,6 +31,8 @@ public class BattleSystem : MonoBehaviour
 
     public Cutscene Mid;
     public Cutscene Ending;
+    public Cutscene Defeat1;
+    public Cutscene Defeat2;
 
     public Animator playerAnimator;
     public Animator enemyAnimator;
@@ -259,7 +261,16 @@ public class BattleSystem : MonoBehaviour
         {
             screenHUD.writeLog("You lose");
             yield return new WaitForSeconds(2f);
-            animator.fadeExit(1);
+            if (enemyUnit.unitName == "Rectanguler" || enemyUnit.unitName == "Circlo")
+            {
+                animator.reproduceCutscene(Defeat1);
+                animator.fadeExit(4);
+            }
+            else
+            {
+                animator.reproduceCutscene(Defeat2);
+                animator.fadeExit(4);
+            }
             bl.resetAccess();
             //SceneManager.LoadScene(0);
         }

@@ -12,4 +12,5 @@ public class Cutscene : ScriptableObject
     public AudioClip[] audioClips;
     public int nextScene;
     public AudioClip bgmusic;
+    public AudioClip bgeffect;
 }
