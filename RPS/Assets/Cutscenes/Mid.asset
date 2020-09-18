@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50e23914218c4f74abd901bde0a659b4, type: 3}
   m_Name: Mid
   m_EditorClassIdentifier: 
-  name: New Cutscene
+  name: Mid
   texts:
   - ALERT!
   - ALERT!!

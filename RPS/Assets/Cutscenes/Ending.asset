@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50e23914218c4f74abd901bde0a659b4, type: 3}
   m_Name: Ending
   m_EditorClassIdentifier: 
-  name: New Cutscene
+  name: Ending
   texts:
   - 'Voice: "I''m surprised with your perseverance, the security systems weren''t
     enough.'

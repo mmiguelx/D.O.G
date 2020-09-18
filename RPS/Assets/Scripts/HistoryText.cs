@@ -74,9 +74,16 @@ public class HistoryText : MonoBehaviour
         {
             selectedText++;
             if (selectedText == cutsceneTexts.Length)
-                bl.fadeExit(nextScene);
+                ExitCutscene();
             else
                 StartCoroutine(showText());
         }
     }
+
+    public void ExitCutscene()
+    {
+        bl.fadeExit(nextScene);
+    }
 }
+
+
