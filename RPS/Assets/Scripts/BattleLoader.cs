@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BattleLoader : MonoBehaviour
 {
-    static int[] access = new int[] {1, 0, 1, 0, 0};
+    static int[] access = new int[] {1, 0, 0, 0, 0};
     public int battleId;
     public FadeLoader FadeLoader;
     public GameObject EventButton;
