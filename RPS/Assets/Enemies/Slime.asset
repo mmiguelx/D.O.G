@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dfb8a94ea36f1042a76b0a6d9a5771a, type: 3}
   m_Name: Slime
   m_EditorClassIdentifier: 
-  name: Slime
+  name: HeavyBot
   level: 4
   damage: 5
   hp: 10
@@ -23,3 +23,4 @@ MonoBehaviour:
   DBehaviour: 
   audioSource: {fileID: 1584401842244845928, guid: 441b12aaee1514b4d86f807d5bdf87e3,
     type: 3}
+  animc: {fileID: 9100000, guid: d9aa925e5d598b14983d66ecf4cd1434, type: 2}

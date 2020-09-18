@@ -27,3 +27,4 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 0d9c73baa4da76f4ba23b4607d7ae011, type: 3}
   nextScene: 2
+  bgmusic: {fileID: 8300000, guid: 1017999a2c78e4d43b3756db31837b22, type: 3}

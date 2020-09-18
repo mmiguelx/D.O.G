@@ -11,4 +11,5 @@ public class Cutscene : ScriptableObject
     public int[] arep;
     public AudioClip[] audioClips;
     public int nextScene;
+    public AudioClip bgmusic;
 }

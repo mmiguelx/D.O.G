@@ -15,4 +15,5 @@ public class Enemy : ScriptableObject
     public int[] ABehaviour;
     public int[] DBehaviour;
     public AudioSource audioSource;
+    public RuntimeAnimatorController animc;
 }

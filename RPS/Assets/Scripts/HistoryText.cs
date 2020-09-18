@@ -14,7 +14,9 @@ public class HistoryText : MonoBehaviour
     private bool writing = false; //esta escribiendo?
 
     public AudioSource ads; //reproductor de clips de audio
+    public AudioSource bgm; //reproductor de background music
     public AudioClip[] ac; //clips de audio
+    public AudioClip bgmc; //clips de bgm
     public int[] whatClip; //que clip reproducir en la escena actual
 
     public int nextScene; //la siguiente escena a la que irá al terminar la cutscene
@@ -29,9 +31,12 @@ public class HistoryText : MonoBehaviour
         ac = c.audioClips;
         whatClip = c.arep;
         nextScene = c.nextScene;
+        bgmc = c.bgmusic;
+        bgm.clip = bgmc;
     }
     void Start()
     {
+        bgm.Play();
         this.GetComponent<Text>().text = "";
         selectedText = 0;
         StartCoroutine(startingDelay());

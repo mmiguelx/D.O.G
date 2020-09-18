@@ -2058,7 +2058,7 @@ GameObject:
   - component: {fileID: 998090116}
   - component: {fileID: 998090115}
   m_Layer: 0
-  m_Name: Boss
+  m_Name: SS08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2851,7 +2851,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -439, y: -254.5}
+  m_AnchoredPosition: {x: -439.36978, y: -253.99}
   m_SizeDelta: {x: -461.3058, y: -193.89172}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1512530092

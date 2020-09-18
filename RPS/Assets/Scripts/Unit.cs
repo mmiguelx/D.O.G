@@ -17,6 +17,14 @@ public class Unit : MonoBehaviour
     public int maxHP;
     public int currentHP;
 
+    public RuntimeAnimatorController animc;
+
+    public AudioSource reproductor;
+    public AudioClip attackR;
+    public AudioClip attackB;
+    public AudioClip attackG;
+    public AudioClip defend;
+
     public void initEUnit()
     {
         Enemy enemy = BattleInfoBridge.instance.GetEnemy();
@@ -29,6 +37,7 @@ public class Unit : MonoBehaviour
         this.behaviourD = enemy.DBehaviourType;
         this.unitBehaviourA = new int[enemy.ABehaviour.Length];
         this.unitBehaviourD = new int[enemy.DBehaviour.Length];
+        this.animc = enemy.animc;
         for (int i = 0; i < enemy.ABehaviour.Length; i++)
         {
             this.unitBehaviourA[i] = enemy.ABehaviour[i];

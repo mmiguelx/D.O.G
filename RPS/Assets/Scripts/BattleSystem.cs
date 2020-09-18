@@ -27,9 +27,13 @@ public class BattleSystem : MonoBehaviour
     private bool onAction = false;
 
     public FadeLoader animator;
+    public BattleLoader bl;
 
     public Cutscene Mid;
     public Cutscene Ending;
+
+    public Animator playerAnimator;
+    public Animator enemyAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +53,8 @@ public class BattleSystem : MonoBehaviour
         GameObject enemyGo = Instantiate(enemyPrefab, enemyBattleStation);
         enemyUnit = enemyGo.GetComponent<Unit>();
         enemyUnit.initEUnit();
+        playerAnimator.runtimeAnimatorController = playerUnit.animc;
+        enemyAnimator.runtimeAnimatorController = enemyUnit.animc;
         //audioSource = BattleInfoBridge.instance.GetEnemy().audioSource;
         audioSource.clip = BattleInfoBridge.instance.GetEnemy().audioSource.clip;
         audioSource.outputAudioMixerGroup = BattleInfoBridge.instance.GetEnemy().audioSource.outputAudioMixerGroup;
@@ -81,36 +87,74 @@ public class BattleSystem : MonoBehaviour
         if (type)
         {
             if (action == 0)
-                screenHUD.writeLog("You choose rock\n");
+            {
+                screenHUD.writeLog("You choose red\n\n");
+                if (playerAnimator.GetBool("att"))
+                    enemyUnit.reproductor.PlayOneShot(playerUnit.attackR);
+                playerAnimator.SetBool("red", true);
+            }
             if (action == 1)
-                screenHUD.writeLog("You choose paper\n");
+            {
+                screenHUD.writeLog("You choose blue\n\n");
+                if (playerAnimator.GetBool("att"))
+                    enemyUnit.reproductor.PlayOneShot(playerUnit.attackB);
+                playerAnimator.SetBool("blue", true);
+            }
             if (action == 2)
-                screenHUD.writeLog("You choose scissors\n");
+            {
+                screenHUD.writeLog("You choose green\n\n");
+                if (playerAnimator.GetBool("att"))
+                    enemyUnit.reproductor.PlayOneShot(playerUnit.attackG);
+                playerAnimator.SetBool("green", true);
+            }
         }
         else
         {
             if (action == 0)
-                screenHUD.writeLog(enemyUnit.unitName + " choose rock\n");
+            {
+                screenHUD.writeLog(enemyUnit.unitName + " choose red\n\n");
+                if (enemyAnimator.GetBool("att"))
+                    enemyUnit.reproductor.PlayOneShot(enemyUnit.attackR);
+                enemyAnimator.SetBool("red", true);
+            }
             if (action == 1)
-                screenHUD.writeLog(enemyUnit.unitName + " choose paper\n");
+            {
+                screenHUD.writeLog(enemyUnit.unitName + " choose blue\n\n");
+                if (enemyAnimator.GetBool("att"))
+                    enemyUnit.reproductor.PlayOneShot(enemyUnit.attackB);
+                enemyAnimator.SetBool("blue", true);
+            }
             if (action == 2)
-                screenHUD.writeLog(enemyUnit.unitName + " choose scissors\n");
-        }
+            {
+                screenHUD.writeLog(enemyUnit.unitName + " choose green\n\n");
+                if (enemyAnimator.GetBool("att"))
+                    enemyUnit.reproductor.PlayOneShot(enemyUnit.attackG);
+                enemyAnimator.SetBool("green", true);
+            }
+    }
         CombatHistory.instance.Add(action);
     }
 
     IEnumerator PlayerAttack(int action)
     {
+        enemyAnimator.SetBool("att", false);
+        playerAnimator.SetBool("att", true);
         //comprobar quien gana y ejecutar acción ofensiva según ganar empatar o perder
         CombatLog(action, true);
         yield return new WaitForSeconds(1f);
 
         int enemyAction = enemyUnit.getActionD(); //acción enemiga simple
         CombatLog(enemyAction, false);
+        enemyUnit.reproductor.PlayOneShot(enemyUnit.defend);
         yield return new WaitForSeconds(1f);
 
         int resolve = actionResolver(action, enemyAction);
         bool isDead = enemyUnit.TakeDamage(resolve * playerUnit.damage);
+        if (resolve == 2)
+        {
+            screenHUD.writeLog("Critical strike!\n");
+            yield return new WaitForSeconds(1f);
+        }
         screenHUD.writeLog("You did " + resolve * playerUnit.damage + " points of damage\n");
         enemyHUD.SetHP(enemyUnit.currentHP);
         if (isDead)
@@ -133,10 +177,15 @@ public class BattleSystem : MonoBehaviour
     {
         //comprobar quien gana y ejecutar acción defensiva según ganar empatar o perder
 
-        CombatLog(action, true);
-        yield return new WaitForSeconds(1f);
+        enemyAnimator.SetBool("att", true);
+        playerAnimator.SetBool("att", false);
+
         int enemyAction = enemyUnit.getActionA(); //acción enemiga simple
         CombatLog(enemyAction, false);
+        yield return new WaitForSeconds(1f);
+
+        CombatLog(action, true);
+        enemyUnit.reproductor.PlayOneShot(playerUnit.defend);
         yield return new WaitForSeconds(1f);
 
         int resolve = actionResolver(action, enemyAction);
@@ -144,12 +193,17 @@ public class BattleSystem : MonoBehaviour
             resolve += 2;
         if (resolve > 2)
             resolve = 0;
+        if (resolve == 2)
+        {
+            screenHUD.writeLog("Critical strike!\n");
+            yield return new WaitForSeconds(1f);
+        }
         bool isDead = playerUnit.TakeDamage(resolve * enemyUnit.damage);
-        screenHUD.writeLog("Se han recibido " + resolve * enemyUnit.damage + " puntos de daño\n");
-        if (enemyUnit.unitName == "Boss" && resolve == 2) //cosas de boss implementadas de forma chorra
+        screenHUD.writeLog("You take " + resolve * enemyUnit.damage + " points of damage\n");
+        if (enemyUnit.unitName == "SS08" && resolve == 2) //cosas de boss implementadas de forma chorra
         {
             enemyUnit.damage++;
-            screenHUD.writeLog("La fuerza del boss ha aumentado!");
+            screenHUD.writeLog("SS08 gained strength!");
         }
         playerHUD.SetHP(playerUnit.currentHP);
         if (isDead)
@@ -187,13 +241,14 @@ public class BattleSystem : MonoBehaviour
                 playerUnit.currentHP += 5;
             }
             yield return new WaitForSeconds(2f);
-            if (enemyUnit.unitName == "Goblin")
+            if (enemyUnit.unitName == "Circlo")
             {
                  animator.reproduceCutscene(Mid);
                  animator.fadeExit(4);
             }
-            else if (enemyUnit.unitName == "Boss"){
+            else if (enemyUnit.unitName == "SS08"){
                 animator.reproduceCutscene(Ending);
+                bl.resetAccess();
                 animator.fadeExit(4);
             }
             else {
@@ -205,19 +260,21 @@ public class BattleSystem : MonoBehaviour
             screenHUD.writeLog("You lose");
             yield return new WaitForSeconds(2f);
             animator.fadeExit(1);
+            bl.resetAccess();
             //SceneManager.LoadScene(0);
         }
         CombatHistory.instance.Clear();
     }
+
     void PlayerTurn()
     {
-        screenHUD.writeLog("Player turn\n");
+        screenHUD.writeLog("Player turn\n\n");
         onAction = false;
     }
 
     void EnemyTurn()
     {
-        screenHUD.writeLog("Enemy turn\n");
+        screenHUD.writeLog("Enemy turn\n\n");
         onAction = false;
     }
 
