@@ -38,6 +38,9 @@ public class HistoryText : MonoBehaviour
     }
     void Start()
     {
+        speeded = false;
+        currentText = "";
+        writing = false;
         bgm.Play();
         this.GetComponent<Text>().text = "";
         selectedText = 0;

@@ -17,9 +17,9 @@ MonoBehaviour:
   damage: 6
   hp: 30
   icon: {fileID: 0}
-  ABehaviourType: 0
+  ABehaviourType: 3
   DBehaviourType: 0
-  ABehaviour: 
+  ABehaviour: 02000000
   DBehaviour: 
   audioSource: {fileID: 1584401842244845928, guid: 441b12aaee1514b4d86f807d5bdf87e3,
     type: 3}
