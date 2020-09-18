@@ -7,6 +7,7 @@ public class ButtonBehaviour : MonoBehaviour
     public Animator animator3;
     public Animator animator4;
     public Animator animatorBoss;
+    public Animator animatorMC;
 
 
     //For the proyect
@@ -17,6 +18,7 @@ public class ButtonBehaviour : MonoBehaviour
         animator3.SetTrigger("red");
         animator4.SetTrigger("red");
         animatorBoss.SetTrigger("red");
+        animatorMC.SetTrigger("red");
     }
     public void btnBlue()
     {
@@ -25,6 +27,7 @@ public class ButtonBehaviour : MonoBehaviour
         animator3.SetTrigger("blue");
         animator4.SetTrigger("blue");
         animatorBoss.SetTrigger("blue");
+        animatorMC.SetTrigger("blue");
     }
     public void btnGreen()
     {
@@ -33,6 +36,7 @@ public class ButtonBehaviour : MonoBehaviour
         animator3.SetTrigger("green");
         animator4.SetTrigger("green");
         animatorBoss.SetTrigger("green");
+        animatorMC.SetTrigger("green");
     }
     public void btnAtt()
     {
@@ -43,6 +47,7 @@ public class ButtonBehaviour : MonoBehaviour
             animator3.SetBool("att", false);
             animator4.SetBool("att", false);
             animatorBoss.SetBool("att", false);
+            animatorMC.SetBool("att", false);
         } else
         {
             animator.SetBool("att", true);
@@ -50,6 +55,7 @@ public class ButtonBehaviour : MonoBehaviour
             animator3.SetBool("att", true);
             animator4.SetBool("att", true);
             animatorBoss.SetBool("att", true);
+            animatorMC.SetBool("att", true);
         }
     }
     public void btnPhase()
@@ -70,6 +76,7 @@ public class ButtonBehaviour : MonoBehaviour
         Flip(animator3);
         Flip(animator4);
         Flip(animatorBoss);
+        Flip(animatorMC);
     }
 
     public void btnSwitch()
@@ -79,8 +86,7 @@ public class ButtonBehaviour : MonoBehaviour
         SwitchActive(animator3);
         SwitchActive(animator4);
         SwitchActive(animatorBoss);
-
-
+        SwitchActive(animatorMC);
     }
     private void Flip(Animator animator)
     {
