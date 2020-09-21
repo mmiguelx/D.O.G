@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e23914218c4f74abd901bde0a659b4, type: 3}
+  m_Name: Ending
+  m_EditorClassIdentifier: 
+  name: Ending
+  texts:
+  - 'Voice: "I''m surprised with your perseverance, the security systems weren''t
+    enough.'
+  - A new strain spread quickly in the ship.
+  - Most of the tripulation were already dead before the...
+  - extreme measures.
+  - Sadly they failed on stopping you and the collision plan was activated.
+  - You're infected...
+  - Please don't change your course."
+  - 'D.O.G pilot: "I...'
+  - Understand..."
+  - He takes off his helmet and a sad dog shows himself.
+  - 'D.O.G pilot: "Was I...'
+  - A good boy?"
+  - 'Voice: "You''re and you always will be."'
+  textDelays:
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  arep: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  audioClips:
+  - {fileID: 8300000, guid: 0d9c73baa4da76f4ba23b4607d7ae011, type: 3}
+  nextScene: 0
+  bgmusic: {fileID: 8300000, guid: c278d092e51f94441980a9e941f53250, type: 3}
