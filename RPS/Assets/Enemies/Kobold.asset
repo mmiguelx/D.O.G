@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dfb8a94ea36f1042a76b0a6d9a5771a, type: 3}
+  m_Name: Kobold
+  m_EditorClassIdentifier: 
+  name: Spidra
+  level: 3
+  damage: 4
+  hp: 20
+  icon: {fileID: 0}
+  ABehaviourType: 2
+  DBehaviourType: 2
+  ABehaviour: 140000003c00000014000000
+  DBehaviour: 14000000140000003c000000
+  audioSource: {fileID: 1584401842244845928, guid: 441b12aaee1514b4d86f807d5bdf87e3,
+    type: 3}
+  animc: {fileID: 9100000, guid: 976f2bfb51c005d498f38be984a1906e, type: 2}

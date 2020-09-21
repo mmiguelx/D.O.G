@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8667501387928611035}
-  - component: {fileID: 2921160002965542687}
   - component: {fileID: 368136887722665092}
   m_Layer: 0
   m_Name: Player
@@ -32,55 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2921160002965542687
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2355845302566985933}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c0f1bf61cf1526d4d89e1da96b6ec281, type: 3}
-  m_Color: {r: 0.2470588, g: 0.8862745, b: 0.37564066, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!114 &368136887722665092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,6 +45,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Player
   unitLevel: 1
-  damage: 5
-  maxHP: 50
-  currentHP: 40
+  behaviourA: 0
+  behaviourD: 0
+  unitBehaviourA: 
+  unitBehaviourD: 
+  damage: 2
+  maxHP: 30
+  currentHP: 24
+  animc: {fileID: 9100000, guid: 7e62c26fc9ebae649bfc0a75b454dfd2, type: 2}
+  reproductor: {fileID: 0}
+  attackR: {fileID: 8300000, guid: 6f55a39aa91f23d4e81be7c2a5d963d2, type: 3}
+  attackB: {fileID: 8300000, guid: 6d9a932c3859caa4e9c0b2f8aa7f67bc, type: 3}
+  attackG: {fileID: 8300000, guid: ce613b2779950ac4e8965b873161b96e, type: 3}
+  defend: {fileID: 8300000, guid: 2e16cdf918a993e4280c85979c81f353, type: 3}

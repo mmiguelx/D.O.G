@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e23914218c4f74abd901bde0a659b4, type: 3}
+  m_Name: Introduccion
+  m_EditorClassIdentifier: 
+  name: Introduction
+  texts:
+  - '30XX Century: A interplantary pandemic annihilated the 90% of the human race.'
+  - We're traveling around Jupiter.
+  - Suddenly the security systems activated themselves and killed the entire tripulation.
+  - I could save myself by going inside the armory and hiding in one of those D.O.G
+    (Dynamic Occupant Gear) suits.
+  - This was a long time ago, I should leave this room soon.
+  textDelays:
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  arep: 0000000000000000000000000000000000000000
+  audioClips:
+  - {fileID: 8300000, guid: 0d9c73baa4da76f4ba23b4607d7ae011, type: 3}
+  nextScene: 2
+  bgmusic: {fileID: 8300000, guid: 4483918e860ce124188937ab90d21902, type: 3}
