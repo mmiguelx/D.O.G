@@ -1,4 +1,4 @@
-# rps
+# D.O.G
 Ready Player 42 Project
 
 This is a little prototype for a rpg game based on rock, paper and scissors.
