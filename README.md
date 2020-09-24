@@ -1,9 +1,3 @@
-# D.O.G
-Ready Player 42 Project
-
-This is a little prototype for a rpg game based on rock, paper and scissors.
-For full info <a href="https://thefrenchbulldog.itch.io/dog">Click here</a>
-
 <p class="text-justify">Welcome to The French Bulldog's first game.</p>
 <p class="text-justify">We're junior developers and designers who get together to make their dreams come true.</p>
 <h1 class="text-center">D.O.G</h1>
@@ -19,3 +13,5 @@ For full info <a href="https://thefrenchbulldog.itch.io/dog">Click here</a>
 <li>Llamosas, Carlos - Animations and Writing.</li>
 <li>Pernía, Mario - Lead Designer.</li>
 <li>Remesar, Beñat - Programming.</li></ul>
+
+For full download <a href="https://thefrenchbulldog.itch.io/dog">Click here</a>
