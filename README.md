@@ -10,8 +10,8 @@
 <h1 class="text-center">Team</h1>
 <ul><li>Escalante, Alejandro - Character Design.</li>
 <li>Escalante, Mariela - Illustrations and Marketing.</li>
-<li>Llamosas, Carlos - Animations and Writing.</li>
+  <li><a href="https://github.com/Chokolove">Llamosas, Carlos</a> - Animations and Writing.</li>
 <li>Pernía, Mario - Lead Designer.</li>
-<li>Remesar, Beñat - Programming.</li></ul>
+  <li><a href="https://github.com/PotatomixS">Remesar, Beñat</a> - Programming.</li></ul>
 
 For full download <a href="https://thefrenchbulldog.itch.io/dog">Click here</a>
